@@ -1,0 +1,18 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'mystyle.css'%}">
+        <title>My Store</title>
+    </head>
+<body>
+    <h1> MY STORE </h1>
+    {% for category in categories %}
+        <h2>{{ category.name }}</h2>
+        {% for product in category.product_set.all %}
+            <p style="text-indent: 1em;">
+            <a href="product/{{ product.id }}" >{{ product.name }}</a><br>
+            </p>
+        {% endfor %}
+    {% endfor %}
+</body>
+</html>
